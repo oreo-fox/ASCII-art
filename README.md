@@ -1,1 +1,3 @@
-# ASCII-art
+# ASCII art
+
+Makes pictures into ASCII art.
