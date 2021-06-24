@@ -65,11 +65,12 @@ def print_ascii(ascii_matrix):
     for line in ascii_matrix:
         str_line = ""
         for c in line:
+            # x2 because otherwise image is sqished
             str_line = str_line + c*2
         
         print(str_line)
 
-
+# resize the image while keeping the ratio
 def resize(image, max_width):
    
     wpercent = (max_width/float(image.size[0]))
@@ -81,7 +82,6 @@ def resize(image, max_width):
         
 if __name__ == "__main__":
 
-    
     if len(sys.argv) == 2:
         img_path = sys.argv[1]
 
@@ -94,8 +94,7 @@ if __name__ == "__main__":
     
     elif len(sys.argv) == 3:
         img_path = sys.argv[1]
-        max_width = sys.argv[2]
-
+        max_width = int(sys.argv[2])
         img = load_image(img_path, max_width)
     
         if img is not None:
@@ -105,14 +104,4 @@ if __name__ == "__main__":
     
     else:
         print("Ooops! something went wrong!")
-        print("Please use the following commands: ascii.py path_to_image or ascii.py path_to_image max_width")
-
-
-    
-    
-
-    
-    
-    
-
-
+        print("Please use the following commands: python 3 ascii.py path_to_image or python3 ascii.py path_to_image max_width")
